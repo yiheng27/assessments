@@ -3,26 +3,24 @@ import { useState } from "react";
 
 const Form = ( {onSubmit} ) => {
     const [authorName, setAuthorName] = useState('');
-    //useState->track state; [current state, set new state function]
-    //initial authorName == ''
+    //Define state for authorName
     const handleSubmit = (e) => {
         e.preventDefault();
-        //prevent reloading of page after submission
+        //Prevent reloading of page after submission
         onSubmit(authorName);
-        //submit authorName
+        //Call parent component's onSubmit function with authorName
         setAuthorName('');
-        //reser after submission
+        //Clear authorName after submission
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}> {/*Form submission handler */}
           <input
             type="text"
             placeholder="author name"
-            value={authorName}
+            value={authorName} //Controlled input value
             onChange={(e) => setAuthorName(e.target.value)}
-            //onchanges, get current input text and calls setAuthorName, update authorName
-            //e->event, e.target->element that triggered event (text input), e.target.value-> retrieves current value ot text input
+            //Update authorName state on input change
           />
           <button type="submit">submit</button>
         </form>

@@ -1,13 +1,12 @@
 const AuthorList = ( {authors} ) => {
     return (
       <div>
-        <h2>Submitted Authors:</h2>
+        <h2>Submitted Authors:</h2> {/* Heading for list */}
+
         <ul>
           {authors.map( (author, index) => (
-            //maps authors into a list with index
             <li key={index}>{author}</li>
-            //create list item for each author name
-            //key={index}: update when list changes
+            //Render each author name as a list item
           ) )}
         </ul>
       </div>
